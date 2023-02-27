@@ -1,2 +1,4 @@
 1_data_storage/BankChurners.csv
 1_data_storage/data.db
+.streamlit/
+env/

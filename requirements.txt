@@ -1,0 +1,4 @@
+pandas==1.5.3
+pipreqs==0.4.11
+pipreqsnb==0.2.4
+ipympl==0.9.3

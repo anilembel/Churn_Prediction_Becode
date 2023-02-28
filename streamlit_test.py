@@ -1,26 +1,47 @@
 import streamlit as st
 import streamlit.components.v1 as components
+
 import time
 import pickle
 
-#Personnal function 
-
+# Personal function 
 from data_preprocessing.fitting_data_model import fitting_data_model_streamlit
 from data_preprocessing.preprocessing_users_data import convert_to_numeric_streamlit
 from modeling.modeling import modeling 
 
-#Loading the plk file with the dataframe shape the model will need
+# Loading the plk file with the dataframe shape the model will need
 features_path = "modeling/model/classification/X_form.pkl"
-#Loading the pkl file containing a df with the columns used by the ML engineer in his model
+# Loading the pkl file containing a df with the columns used by the ML engineer in his model
 df_features = pickle.load(open(features_path, "rb"))
 
-st.set_page_config(page_title="My Dashboard", layout="wide")
-with st.container():
-    tableau_dashboard = "<div class='tableauPlaceholder' id='viz1677163376923' style='position: relative'><noscript><a href='#'><img alt='Dashboard Analytics ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClientProfileDashboard_16771633646050&#47;DashboardAnalytics&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ClientProfileDashboard_16771633646050&#47;DashboardAnalytics' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClientProfileDashboard_16771633646050&#47;DashboardAnalytics&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1677163376923');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1580px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1580px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"
+# Page layout
+st.set_page_config(page_title="Churn Prediction App", page_icon=":bar_chart:", layout="wide")
 
-st.title("Will the customer churn or not ?")
+# Dashboard title and description
+st.title("Churn Prediction App")
+st.write("This app predicts if a customer will churn or not based on their banking profile.")
 
+# Tableau dashboard
+tableau_dashboard = """
+<div class='tableauPlaceholder' id='viz1677163376923' style='position: relative'><noscript><a href='#'><img alt='Dashboard Analytics ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClientProfileDashboard_16771633646050&#47;DashboardAnalytics&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ClientProfileDashboard_16771633646050&#47;DashboardAnalytics' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cl&#47;ClientProfileDashboard_16771633646050&#47;DashboardAnalytics&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1677163376923');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if (divElement.offsetWidth > 800) {
+        vizElement.style.width='1580px';vizElement.style.height='927px';
+    } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width='1580px';vizElement.style.height='927px';
+    } else {
+        vizElement.style.width='100%';vizElement.style.height='2577px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+"""
 components.html(tableau_dashboard, width=1580, height=927)
+
+# Sidebar inputs
 with st.sidebar:
     data = dict()
 
@@ -92,6 +113,7 @@ with st.sidebar:
     #st.progress(10)
     #with st.spinner('Wait for it...'):    
     #    time.sleep(10)
+
 
 
 

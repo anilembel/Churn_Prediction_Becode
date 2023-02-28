@@ -1,6 +1,6 @@
 1_data_storage/BankChurners.csv
 1_data_storage/data.db
-.streamlit/
+.streamlit/secrets.toml
 env/
 venv
 .DS_Store

@@ -1,8 +1,9 @@
 import pickle
 import numpy as np
 
+path = "modeling/model/classification/classification_model.pkl"
 
-class_model = pickle.load(open("modeling/models/classification_model.pkl", "rb"))
+class_model = pickle.load(open(path, "rb"))
 
 def modeling(data : list) -> float:
     features : np.array = [np.array(data)]

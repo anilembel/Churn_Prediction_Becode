@@ -28,37 +28,40 @@ data = data.drop(['Attrition_Flag','CLIENTNUM','Naive_Bayes_Classifier_Attrition
 # Sort numerical and categorical values
 numeric_features = data.select_dtypes(include=['number'])
 categorical_features = data.select_dtypes(exclude=['number'])
-# print(categorical.columns)
 
 # Clean datas
 data = data.replace({
     'Unknown': np.nan
 })
 
+#---------------------------------------------------------
+
 # Pipeline 
 
 # Preprocessing
 numeric_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='mean')),
-    ('scaler', StandardScaler())
+    ('scaler', StandardScaler().set_output(transform='pandas'))
 ])
 
 categorical_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='most_frequent')),
-    ('encoder', OneHotEncoder())
+    ('encoder', OneHotEncoder(sparse_output=False).set_output(transform='pandas'))
 ])
 
 preprocessor = ColumnTransformer(
    transformers=[
     ('numeric', numeric_transformer, numeric_features.columns),
     ('categorical', categorical_transformer, categorical_features.columns)
-]) 
+]).set_output(transform='pandas')
 
 # Model  
 pipe_steps = [
     ('preprocessing',preprocessor),
-    ('model', KMeans(n_clusters=3, init='random', n_init="auto"))]
+    ('model', KMeans(n_clusters=6, init='random', n_init="auto").set_output(transform='pandas'))]
 pipe = Pipeline(pipe_steps)
+
+#---------------------------------------------------------
 
 # Fit the model
 cluster_model = pipe.fit(data)

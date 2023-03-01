@@ -25,12 +25,12 @@ data = pd.read_csv('../data_cleaning/BankChurners.csv')
 
 # Select columns
 select= ['Attrition_Flag','Gender', 'Customer_Age', 'Dependent_count', 
-         'Months_on_book', 'Total_Relationship_Count', 
-         'Months_Inactive_12_mon', 'Contacts_Count_12_mon', 
-         'Credit_Limit', 'Total_Revolving_Bal', 'Total_Amt_Chng_Q4_Q1', 
-         'Total_Trans_Amt', 'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 
-         'Avg_Utilization_Ratio'
-         ]
+        'Months_on_book', 'Total_Relationship_Count', 
+        'Months_Inactive_12_mon', 'Contacts_Count_12_mon', 
+        'Credit_Limit', 'Total_Revolving_Bal', 'Total_Amt_Chng_Q4_Q1', 
+        'Total_Trans_Amt', 'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 
+        'Avg_Utilization_Ratio'
+        ]
 
 data = pd.concat([data[select]], axis=1)
 

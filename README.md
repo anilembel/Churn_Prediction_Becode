@@ -31,7 +31,7 @@ The project is divided in 5 folders:
    * seaborn 0.12.2
    * skimpy
    * sqlite3
-3. Run [...]
+3. pip install requirments.txt
 
 ## Usage
 

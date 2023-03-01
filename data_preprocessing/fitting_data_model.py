@@ -35,7 +35,10 @@ def fitting_data_model_flask(data : dict, df_features) -> list:
     for column_name_reference, position in column_position.items():
         for column_name_stored, value in data.items():
             if column_name_reference == column_name_stored :
-                fitting_data[position] = float(value)
+                #if isinstance(value,(float, int)):
+                    fitting_data[position] = value
+                #else :
+                #    fitting_data[position] = value
             elif "Education" in column_name_stored :
                 if "College" in value :
                     fitting_data[column_position['Education_Level_College']] = 1
@@ -89,7 +92,7 @@ def fitting_data_model_streamlit(data : dict, df_features) -> list:
     for column_name_reference, position in column_position.items():
         for column_name_stored, value in data.items():
             if column_name_reference == column_name_stored :
-                fitting_data[position] = float(value)
+                fitting_data[position] = value
             elif "Education" in column_name_stored :
                 if "College" in value :
                     fitting_data[column_position['Education_Level_College']] = 1

@@ -6,6 +6,8 @@ import pickle
 #To import the image (favicon)
 from PIL import Image
 
+import pandas as pd
+
 #Personnal function 
 
 from data_preprocessing.fitting_data_model import fitting_data_model_streamlit
@@ -15,7 +17,7 @@ from modeling.modeling import modeling
 #Loading the plk file with the dataframe shape the model will need
 features_path = "modeling/model/classification/X_form.pkl"
 #Loading the pkl file containing a df with the columns used by the ML engineer in his model
-df_features = pickle.load(open(features_path, "rb"))
+df = pickle.load(open(features_path, "rb"))
 
 #Open the favicon image
 img = Image.open(".streamlit/save-money.png")
@@ -28,16 +30,17 @@ st.write("You can juste fill in the form before and click on the button 'Predict
 st.write("""Just keep in mind, with the data we received, your customer has to be already a client for 13 months at least to be able to give
         you a prediction on the churn.""")
 
-#Defining the dict to store the data from the form
-data = dict()
-
 #Radio button Female / Male beside each other
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-data['Gender'] = st.radio("What's the customer's gender ?", ("Male", "Female"))
+gender = st.radio("What's the customer's gender ?", ("Male", "Female"))
+if gender == "Male":
+    df.loc['Gender'] = 'M'
+else :
+    df.loc['Gender'] = 'F'
 
-data['Customer_Age'] = st.slider('How old is the customer ?',18 ,100, key="Customer_Age")
+df['Customer_Age'] = st.slider('How old is the customer ?',18 ,100, key="Customer_Age")
 
-data['Dependent_count'] = st.slider("How many dependent relatives does the customer have ?", 0, 6, key="Dependent_count")
+df['Dependent_count'] = st.slider("How many dependent relatives does the customer have ?", 0, 6, key="Dependent_count")
 
 #data['Marital_Status'] = st.selectbox("What's the customer's marital status ?", ['Select a marital statut please','Divorced','Single','Married','Unknown'])
 
@@ -47,32 +50,34 @@ data['Dependent_count'] = st.slider("How many dependent relatives does the custo
 
 #data['Card_Category'] = st.selectbox("What's the customer's card category ?", ['Select a card category please','Blue','Silver','Gold','Platinum'])
 
-data['Months_on_book'] = st.slider("How long is the customer client in your bank ? (in months)", 13, 60, key="months_on_book'")
+df['Months_on_book'] = st.slider("How long is the customer client in your bank ? (in months)", 13, 60, key="months_on_book'")
 
-data['Total_Relationship_Count'] = st.slider("How many products does the customer have in your bank ?", 0, 6, key="total_relationship_count")
+df['Total_Relationship_Count'] = st.slider("How many products does the customer have in your bank ?", 0, 6, key="total_relationship_count")
 
 #data['Months_Inactive_12_mon'] = st.select_slider("How many months was the customer inactive during last year ?", [0,1,2,3,4,5,6], key="months_inactive_12_mon")
-data['Months_Inactive_12_mon'] = st.slider("How many months was the customer inactive during last year ? (months)", 0, 6, key="months_inactive_12_mon")
+df['Months_Inactive_12_mon'] = st.slider("How many months was the customer inactive during last year ? (months)", 0, 6, key="months_inactive_12_mon")
 
-data['Contacts_Count_12_mon'] = st.slider("How many contacts do you have with the customer last year ?", 0, 6, key="contacts_count_12_mon")
+df['Contacts_Count_12_mon'] = st.slider("How many contacts do you have with the customer last year ?", 0, 6, key="contacts_count_12_mon")
 
-data['Credit_Limit'] = st.slider("What's the customer's credit's limit ? ($)", 1400, 40000, key="credit_limit")
+df['Credit_Limit'] = st.slider("What's the customer's credit's limit ? ($)", 1400, 40000, key="credit_limit")
 
-data['Total_Revolving_Bal'] = st.slider("What is the total revolving balance on the customer's credit card ? ($)", 0, 3000, key="total_revolving_bal")
+df['Total_Revolving_Bal'] = st.slider("What is the total revolving balance on the customer's credit card ? ($)", 0, 3000, key="total_revolving_bal")
 
-data['Total_Amt_Chng_Q4_Q1'] = st.slider("How much did the customer's transaction amount change in the last quarter compared to the previous quarter?", 0, 5, key="total_amt_chng_Q4_Q1")
+df['Total_Amt_Chng_Q4_Q1'] = st.slider("How much did the customer's transaction amount change in the last quarter compared to the previous quarter?", 0, 5, key="total_amt_chng_Q4_Q1")
 
-data['Total_Trans_Amt'] = st.slider("How much was the customer's total amount transaction for last 12 months ? ($)", 0, 20000, key="total_trans_amt")
+df['Total_Trans_Amt'] = st.slider("How much was the customer's total amount transaction for last 12 months ? ($)", 0, 20000, key="total_trans_amt")
 
-data['Total_Trans_Ct'] = st.slider("How many transactions did the customer make during last 12 months ?", 0, 200, key="total_trans_ct")
+df['Total_Trans_Ct'] = st.slider("How many transactions did the customer make during last 12 months ?", 0, 200, key="total_trans_ct")
 
-data['Total_Ct_Chng_Q4_Q1'] = st.slider("How much did the customer's transaction amount changed in the last quarter compared to the previous one ?", 0.00, 5.00, key="total_ct_chng_Q4_Q1'")
+df['Total_Ct_Chng_Q4_Q1'] = st.slider("How much did the customer's transaction amount changed in the last quarter compared to the previous one ?", 0.00, 5.00, key="total_ct_chng_Q4_Q1'")
 
-data['Avg_Utilization_Ratio'] = st.slider("What's the ratio for the customer's average card's utilization ?", 0.00, 1.00, key="avg_utilization_ratio")
+df['Avg_Utilization_Ratio'] = st.slider("What's the ratio for the customer's average card's utilization ?", 0.00, 1.00, key="avg_utilization_ratio")
 
 #dict for correspondence between values for gender and marital_status column
-correspondence = { "Gender" : {"Male": "M", "Female": "F"}}#, 
+#correspondence = { "Gender" : {"Male": "M", "Female": "F"}}#, 
 #                "Marital_Status" : {"Single": 0, "Married": 1, "Unknown": 2, "Divorced": 3}}
+
+print(df)
 
 #st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
 st.write('<style>.stButton>button{display:block;margin:0 auto;font-size:24px;width:200px;height:80px;}</style>', unsafe_allow_html=True)
@@ -80,29 +85,20 @@ st.write('<style>.stButton>button{display:block;margin:0 auto;font-size:24px;wid
 if st.button("Predict") :
 
     #Convert the data from the form into numerical values
-    numeric_data = convert_to_numeric_streamlit(data, correspondence)
+    #numeric_data = convert_to_numeric_streamlit(data, correspondence)
     #Preprocessing numeric_data for them to fit the shape the model needs 
-    data_fit_model = fitting_data_model_streamlit(numeric_data, df_features)
+    #data_fit_model = fitting_data_model_streamlit(numeric_data, df_features)
     #Predicting the churn with the classification model
-    predict_churn = modeling(data_fit_model)
-    print(df_features)
-    print(f"{data_fit_model} has {len(data_fit_model)} length")
-    total = 0
-    for i, el in enumerate(data_fit_model):
-        if el > 0 :
-            print(f"the column {i} is fullfilled with the value {el}")
-            total += 1
-    print(total)
-    if predict_churn[0] == 1 :
-        st.success("With the data you gave us, it seems the customer will stay in your bank !")
-        st.balloons()
-    else :
-        st.error("With the data you gave us, it seems the customer will churn !")
+    predict_churn = modeling(df)
+    if predict_churn[0] == "Attrited Customer":
+        st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
+        st.write("With the data you gave us, it seems the customer should churn your bank !")
         st.snow()
-phil_list = list()
-for k in data.keys():
-    phil_list.append(k)
-print(phil_list)
+
+    else :
+        st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
+        st.write("With the data you gave us, it seems the customer should stay in your bank !")
+        st.balloons()
 
 
 #To make 2 lines of space between the button and the dashboard

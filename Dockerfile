@@ -25,7 +25,9 @@ EXPOSE 8501
 #Launch the python file app.py
 #For streamlit : ENTRYPOINT ["streamlit", "run", "app_streamlite.py", "--server.port=8501", "--server.address=0.0.0.0"]
 #CMD ["python", "app_Flask.py"]
-ENTRYPOINT ["streamlit", "run", "app_streamlite.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "app_streamlit_normal.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
 #docker build -t churn_predict_app .   #Creating docker image (the name must be without Uppercase)
 #docker run -t -i -p 4999:4999 churn_predict_app #Creating the docker container
+
+#pipreqs --savepath requirements_streamlit.txt .churn

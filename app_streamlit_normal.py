@@ -71,7 +71,7 @@ data['Total_Ct_Chng_Q4_Q1'] = st.slider("How much did the customer's transaction
 data['Avg_Utilization_Ratio'] = st.slider("What's the ratio for the customer's average card's utilization ?", 0.00, 1.00, key="avg_utilization_ratio")
 
 #dict for correspondence between values for gender and marital_status column
-correspondence = { "Gender" : {"Male": 0, "Female": 1}}#, 
+correspondence = { "Gender" : {"Male": "M", "Female": "F"}}#, 
 #                "Marital_Status" : {"Single": 0, "Married": 1, "Unknown": 2, "Divorced": 3}}
 
 #st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
@@ -94,13 +94,16 @@ if st.button("Predict") :
             total += 1
     print(total)
     if predict_churn[0] == 1 :
-        st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
         st.success("With the data you gave us, it seems the customer will stay in your bank !")
         st.balloons()
     else :
-        st.write('<style>.sterror>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
         st.error("With the data you gave us, it seems the customer will churn !")
         st.snow()
+phil_list = list()
+for k in data.keys():
+    phil_list.append(k)
+print(phil_list)
+
 
 #To make 2 lines of space between the button and the dashboard
 st.write("")

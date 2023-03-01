@@ -91,13 +91,11 @@ if st.button("Predict") :
     #Predicting the churn with the classification model
     predict_churn = modeling(df)
     if predict_churn[0] == "Attrited Customer":
-        st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
-        st.write("With the data you gave us, it seems the customer should churn your bank !")
+        st.markdown("<h1 style='text-align: center; color: red;'>With the data you gave us, it seems the customer should churn your bank !</h1>", unsafe_allow_html=True)
         st.snow()
 
     else :
-        st.write('<style>.stButton>button{display:block;margin:0 auto;}</style>', unsafe_allow_html=True)
-        st.write("With the data you gave us, it seems the customer should stay in your bank !")
+        st.markdown("<h1 style='text-align: center; color: green;'>With the data you gave us, it seems the customer should stay in your bank !</h1>", unsafe_allow_html=True)       
         st.balloons()
 
 

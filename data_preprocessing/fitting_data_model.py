@@ -1,7 +1,7 @@
 import pickle 
 
 #I'd like to just change that path  and everything else would be automated !!!
-features_path = "modeling/models/X_form.pkl"
+features_path = "modeling/model/classification/X_form.pkl"
 
 #Loading the pkl file containing a df with the columns used by the ML engineer in his model
 df_features = pickle.load(open(features_path, "rb"))
@@ -35,7 +35,7 @@ def fitting_data_model_flask(data : dict, df_features) -> list:
     for column_name_reference, position in column_position.items():
         for column_name_stored, value in data.items():
             if column_name_reference == column_name_stored :
-                fitting_data[position] = int(value)
+                fitting_data[position] = float(value)
             elif "Education" in column_name_stored :
                 if "College" in value :
                     fitting_data[column_position['Education_Level_College']] = 1
@@ -89,7 +89,7 @@ def fitting_data_model_streamlit(data : dict, df_features) -> list:
     for column_name_reference, position in column_position.items():
         for column_name_stored, value in data.items():
             if column_name_reference == column_name_stored :
-                fitting_data[position] = int(value)
+                fitting_data[position] = float(value)
             elif "Education" in column_name_stored :
                 if "College" in value :
                     fitting_data[column_position['Education_Level_College']] = 1

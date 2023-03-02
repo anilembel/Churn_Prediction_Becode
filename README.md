@@ -90,8 +90,8 @@ In this folder, we worked on 2 models: one for classification and another one fo
     <td><p style="font-size:1em" align="center">Illustration from clustering</b></td>
  </tr>
  <tr>
-    <td><img src=".streamlit/Confusion_Matrix_Classification.png" alt="confusion matrix from classification"></td>
-    <td><img src=".streamlit/clustering_illu.png" alt="graph from clustering model"></td>
+    <td><img src=".streamlit/Confusion_Matrix_Classification.png" alt="confusion matrix from classification" align="center"></td>
+    <td><img src=".streamlit/clustering_illu.png" alt="graph from clustering model" align="center"></td>
  </tr>
 </table>
 
@@ -100,13 +100,13 @@ In this folder, we worked on 2 models: one for classification and another one fo
 We used Tableau to create a dashboard which allows us to understand customer's profiles. 
 It shows the characteristic parameters of attrited customers and the KPI of the data (in numerical form).
 
-<img src="visualizations/Images/0.2-Dashboard Analytics.png" alt="dashboard analytics">
+<img src="visualizations/Images/0.2-Dashboard Analytics.png" alt="dashboard analytics" align="center">
 
 ## Results
 
 We managed to predict if a specific client is likely to churn. With our models, the accuracy for existing customer is 97% while the accuracy for attrited customer is 71%.
 
-<img src=".streamlit/classification_report.png">
+<img src=".streamlit/classification_report.png" align="center">
 
 You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]()
 

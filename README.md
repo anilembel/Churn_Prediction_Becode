@@ -98,7 +98,7 @@ In this folder, we worked on 2 models: one for classification and another one fo
 We used Tableau to create a dashboard which allows us to understand customer's profiles.
 It shows the characteristic parameters of attrited customers and the KPI of the data (in numerical form).
 
-<img src="visualizations/Dashboard Analytics.png" alt="dashboard analytics">
+<img src="visualizations/Images/0.2-Dashboard Analytics.png" alt="dashboard analytics">
 
 ## Results
 

@@ -84,8 +84,8 @@ In this folder, we worked on 2 models: one for classification and another one fo
 
 <table border="0">
  <tr>
-    <td><p style="font-size:1em">Illustration from classification</b></td>
-    <td><p style="font-size:1em">Illustration from clustering</b></td>
+    <td><p style="font-size:1em" align="center">Illustration from classification</b></td>
+    <td><p style="font-size:1em" align="center">Illustration from clustering</b></td>
  </tr>
  <tr>
     <td><img src=".streamlit/Confusion_Matrix_Classification.png" alt="confusion matrix from classification"></td>

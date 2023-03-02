@@ -93,7 +93,6 @@ In this folder, we worked on 2 models: one for classification and another one fo
  </tr>
 </table>
 
-
 #### vizualisations
 
 We used Tableau to create a dashboard which allows us to understand customer's profiles.
@@ -103,11 +102,13 @@ It shows the characteristic parameters of attrited customers and the KPI of the 
 
 ## Results
 
-We managed to predict if a specific client is likely to chunk. With our models, the accuracy for existing customer is 97% while the accuracy for attrited customer is 71%.
+We managed to predict if a specific client is likely to churn. With our models, the accuracy for existing customer is 97% while the accuracy for attrited customer is 71%.
 You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]()
 
 ## Contact
 
-data analyst: [Anil Furkan EMBEL
-](https://github.com/anilembel)ML engineer: [Philippe Meulemans
-](https://github.com/Laverdure77)data engineers: [Romain Vanden Bossche](https://github.com/vdbromain) & [Anh Sophie Noël](https://github.com/AnhSN)
+data analyst: [Anil Furkan EMBEL](https://github.com/anilembel)
+
+ML engineer: [Philippe Meulemans](https://github.com/Laverdure77)
+
+data engineers: [Romain Vanden Bossche](https://github.com/vdbromain) & [Anh Sophie Noël](https://github.com/AnhSN)

@@ -25,10 +25,12 @@ img = Image.open(".streamlit/save-money.png")
 st.set_page_config(page_title="Churn Prediction", layout="wide", page_icon=img)
 
 #Put a title as it'd be with <h1> in html
-st.title("Welcome to our app to predict if your customer will churn or not !")
-st.write("You can juste fill in the form before and click on the button 'Predict' to know if the customer could churn or not.")
-st.write("""Just keep in mind, with the data we received, your customer has to be already a client for 13 months at least to be able to give
-        you a prediction on the churn.""")
+#st.title("Welcome to our app to predict if your customer will churn or not !")
+#st.write("You can juste fill in the form before and click on the button 'Predict' to know if the customer could churn or not.")
+#st.write("""Just keep in mind, with the data we received, your customer has to be already a client for 13 months at least to be able to give
+#        you a prediction on the churn.""")
+
+st.image(".streamlit/Welcome_to_our_app_8.png")
 
 #Radio button Female / Male beside each other
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)

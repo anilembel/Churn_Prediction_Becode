@@ -10,7 +10,7 @@ from data_preprocessing.fitting_data_model import fitting_data_model_streamlit
 from data_preprocessing.preprocessing_users_data import convert_to_numeric_streamlit
 from modeling.modeling import modeling 
 
-#Loading the plk file with the dataframe shape the model will need
+#Loading the pkl file with the dataframe shape the model will need
 features_path = "modeling/model/classification/X_form.pkl"
 #Loading the pkl file containing a df with the columns used by the ML engineer in his model
 df_features = pickle.load(open(features_path, "rb"))

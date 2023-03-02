@@ -1,0 +1,1 @@
+In this area, it was checked whether there were any gaps, values or outliers in the data, and each column was examined and analyzed separately. Getdummies for ML Engineer were made and data was made available for machine learning.

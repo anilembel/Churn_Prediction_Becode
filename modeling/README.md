@@ -7,7 +7,8 @@ Run a clustering model to determine different customer profile and the propabili
 ## 1.Classification
 
 The classification model used for this project is KNN from SKlearn
-
+Model is build in classification.py.  
+Model is saved in a pickle file in model/classification
 ### Preprocessing
 
 Starting from the raw datas, removing non relevant columns.
@@ -67,6 +68,12 @@ Recall: 87%
 - hyper parameters optimisation  
 
 ## 2.Clustering  
+
+The classification model used for this project is KMeans.
+Model is build in clustering.py.  
+Model is saved in a pickle file in model/clustering
+
+## Pipeline
 
 ![Alt text](Pictures/clustering/pipelineClustering.png)
 

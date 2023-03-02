@@ -25,6 +25,16 @@ attrition_flag = data['Attrition_Flag']
 # Drop unwanted columns
 data = data.drop(['Attrition_Flag','CLIENTNUM','Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_1','Naive_Bayes_Classifier_Attrition_Flag_Card_Category_Contacts_Count_12_mon_Dependent_count_Education_Level_Months_Inactive_12_mon_2'], axis=1)
 
+select = ['Gender', 'Customer_Age', 'Dependent_count', 
+        'Months_on_book', 'Total_Relationship_Count', 
+        'Months_Inactive_12_mon', 'Contacts_Count_12_mon', 
+        'Credit_Limit', 'Total_Revolving_Bal', 'Total_Amt_Chng_Q4_Q1', 
+        'Total_Trans_Amt', 'Total_Trans_Ct', 'Total_Ct_Chng_Q4_Q1', 
+        'Avg_Utilization_Ratio'
+        ]
+
+data = pd.concat([data[select]], axis=1)
+
 # Sort numerical and categorical values
 numeric_features = data.select_dtypes(include=['number'])
 categorical_features = data.select_dtypes(exclude=['number'])
@@ -72,3 +82,6 @@ with open(filename, 'wb') as file:
     pickle.dump(cluster_model, file)
     print("Clustering model saved")
 
+# Empty features df for predictions, stored in model folder
+X_form_clustering = pd.DataFrame(columns=data.columns)
+# X_form_clustering.to_pickle('./model/clustering/X_form_clustering.pkl')

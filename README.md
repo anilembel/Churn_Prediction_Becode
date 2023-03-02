@@ -63,23 +63,25 @@ The project is divided in 4 folders:
 
 *app.py*, which is at the root of our project contains the code of our app.
 We used streamlit to improve our design and docker to deploy it easily. Using those libraries, we display a form which get specific client data, run our model using pickle and tell the user if the client is likely to churn or not.
+
 At the bottom of the page, we included a dashboard which displays a series of graphs. (More about it in the vizualisation section.)
 
 #### data_storage
 
-As required, we uploaded the .csv file into a database.
+As required, we uploaded the .csv file into a database. 
 We used sqlite as it was sufficient for the (non) usage we made of it afterward.
 
 #### data_cleaning
 
 We made an EDA (exploratory data analysis) in which we get rid of the outliers and made an analysis for each column.
 We splitted data into two different parts: one categorical and one numerical.
+
 In the end, for the ML engineer, we stored data in *Cleaned_data.csv* with the method of get dummies. For the data engineers, we stored the data in *ForDatabase_CleanedData.csv*.
 
 #### modeling
 
 In this folder, we worked on 2 models: one for classification and another one for clustering.
-*classification.py* classifies the data between existing customer and attrited customer.
+*classification.py* classifies the data between existing customer and attrited customer. 
 *clustering.py* defines 6 different profiles of customer and their probability to churn.
 
 <table border="0">
@@ -95,7 +97,7 @@ In this folder, we worked on 2 models: one for classification and another one fo
 
 #### vizualisations
 
-We used Tableau to create a dashboard which allows us to understand customer's profiles.
+We used Tableau to create a dashboard which allows us to understand customer's profiles. 
 It shows the characteristic parameters of attrited customers and the KPI of the data (in numerical form).
 
 <img src="visualizations/Images/0.2-Dashboard Analytics.png" alt="dashboard analytics">
@@ -103,6 +105,9 @@ It shows the characteristic parameters of attrited customers and the KPI of the 
 ## Results
 
 We managed to predict if a specific client is likely to churn. With our models, the accuracy for existing customer is 97% while the accuracy for attrited customer is 71%.
+
+<img src=".streamlit/classification_report.png">
+
 You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]()
 
 ## Contact

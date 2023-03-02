@@ -19,7 +19,7 @@ The project is divided in 4 folders:
 ## Installation
 
 1. Clone the repo.
-2. If you just wanna run the app, install the required libraries using
+2. If you just wanna deploy the app, install the required libraries using
 
    ```
    pip install requirements_deployment.txt
@@ -56,7 +56,7 @@ The project is divided in 4 folders:
 3. Launch our app using
 
    ```
-   streamlit run "app.py"
+   streamlit run app.py
    ```
 
 ## Usage
@@ -89,7 +89,7 @@ In this folder, we worked on 2 models: one for classification and another one fo
 We used Tableau to create a dashboard which allows us to understand customer's profiles.
 It shows the characteristics parameters of attrited customers and the KPI of the data (in numerical form).
 
-<img src="visualizations/Dashboard Analytics.png" alt="dashboard analytics">
+`<img src="visualizations/Dashboard Analytics.png" alt="dashboard analytics">`
 
 ## Results
 

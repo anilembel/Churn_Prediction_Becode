@@ -5,4 +5,5 @@ Pillow==9.4.0
 pipreqs==0.4.11
 pipreqsnb==0.2.4
 scikit_learn==1.2.1
+sqlite3==5.1.2
 streamlit==1.19.0

@@ -97,12 +97,13 @@ In this folder, we worked on 2 models: one for classification and another one fo
 #### vizualisations
 
 We used Tableau to create a dashboard which allows us to understand customer's profiles.
-It shows the characteristics parameters of attrited customers and the KPI of the data (in numerical form).
+It shows the characteristic parameters of attrited customers and the KPI of the data (in numerical form).
 
 <img src="visualizations/Dashboard Analytics.png" alt="dashboard analytics">
 
 ## Results
 
+We managed to predict if a specific client is likely to chunk. With our models, the accuracy for existing customer is 97% while the accuracy for attrited customer is 71%.
 You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]()
 
 ## Contact

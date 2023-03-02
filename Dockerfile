@@ -5,13 +5,13 @@ FROM python:3.10
 WORKDIR /app
 
 #Copying requirements.txt into Docker image
-COPY requirements_streamlit.txt .
+COPY requirements_deployment.txt .
 
 #Launch the pip upgrading
 RUN python -m pip install --upgrade pip
 
 #Installing the requirements
-RUN pip install -r requirements_streamlit.txt
+RUN pip install -r requirements_deployment.txt
 
 #Copy the needed folder from local to Docker's image
 COPY . .
@@ -20,7 +20,7 @@ COPY . .
 EXPOSE 8501
 
 #Launch the python file app_streamlit_normal.py
-ENTRYPOINT ["streamlit", "run", "app_streamlit_normal.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
 #docker build -t churn_predict_app .   #Creating docker image (the name must be without Uppercase)
 #docker run -t -i -p 8501:8501 churn_predict_app #Creating the docker container

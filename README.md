@@ -25,6 +25,10 @@ The project is divided in 4 folders:
    pip install requirements_deployment.txt
    ```
 
+   * numpy 1.24.2
+   * pandas 1.5.3
+   * pillow 9.4.0
+   * scikit_learn 1.2.1
    * streamlit 1.19.0
 
    If you wanna run the whole code, install all the required libraries using
@@ -35,10 +39,13 @@ The project is divided in 4 folders:
 
    * imbalanced_learn 0.10.1
    * imblearn 0.0
+   * ipympl 0.9.3
    * matplotlib.pyplot 3.7.0
    * numpy 1.24.2
    * pandas 1.5.3
    * pillow 9.4.0
+   * pipreqs 0.4.11
+   * pipreqsnb 0.2.4
    * plotly.graph_objects
    * plotly.subplots
    * scikit-learn 1.2.1

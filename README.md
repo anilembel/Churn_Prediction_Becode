@@ -9,21 +9,40 @@ This repository host our first group project in our chosen specialization.
 
 We worked on given data in order to predict whether or not a bank client is likely to churn. In order to do so, we analyzed the data to define different clusters, we then trained a model to make the prediction and finally, we deployed an easy to use app which let our users know if a specific client is at risk of churning.
 
-The project is divided in 5 folders:
+The project is divided in 4 folders:
 
 1. data_storage: upload the given .csv file to a database.
 2. data_cleaning: contains graphs and cleaned data for data analyst and ML engineer.
-3. data_preprocessing: preprocessing of the data for the ML engineer.
-4. modeling: classification, clustering and modeling used for the prediction.
-5. vizualisations: creation of client profile dashboard with Tableau.
+3. modeling: use classification and clustering to make the prediction.
+4. vizualisations: creation of client profile dashboard with Tableau.
 
 ## Installation
 
 1. Clone the repo.
-2. Install the required libraries using
+2. If you just wanna run the app, install the required libraries using
 
    ```
-   pip install requirments.txt
+   pip install requirements_deployment.txt
+   ```
+
+   * imbalanced_learn 0.10.1
+   * imblearn 0.0
+   * matplotlib.pyplot 3.7.0
+   * numpy 1.24.2
+   * pandas 1.5.3
+   * pillow 9.4.0
+   * plotly.graph_objects
+   * plotly.subplots
+   * scikit-learn 1.2.1
+   * seaborn 0.12.2
+   * skimpy
+   * sqlite3 5.1.2
+   * streamlit 1.19.0
+
+   If you wanna run the whole code, install all the required libraries using
+
+   ```
+   pip install requirements.txt
    ```
 
    * imbalanced_learn 0.10.1
@@ -47,7 +66,9 @@ The project is divided in 5 folders:
 
 ## Usage
 
-app.py
+*app.py*, which is at the root of our project contains the code of our app.
+We used streamlit to better our design and docker to make it available cross OS. Using those libraries, we display a form which get specific client data, run our model using pickle and tell the user if the client is likely to churn or not.
+At the bottom of the page, we included a dashboard which displays a series of graphs. (More about it in the vizualisation section.)
 
 #### data_storage
 
@@ -56,15 +77,22 @@ We used sqlite as it was sufficient for the (non) usage we made of it afterward.
 
 #### data_cleaning
 
-[work in progress]
+We made an EDA (exploratory data analysis) in which we get rid of the outliers and made an analysis for each column.
+We splitted data into two different parts: one categorical and one numerical.
+In the end, for the ML engineer, we stored data in *Cleaned_data.csv* with the method of get dummies. For the data engineers, we stored the data in *ForDatabase_CleanedData.csv*.
 
 #### modeling
 
-[work in progress]
+In this folder, we worked on 2 models: one for classification and another one for clustering.
+*classification.py* classifies the data between existing customer and attrited customer.
+*clustering.py* defines 6 different profiles of customer and their probability to churn.
 
 #### vizualisations
 
-[work in progress]
+We used Tableau to create a dashboard which allows us to understand customer's profiles.
+It shows the characteristics parameters of attrited customers and the KPI of the data (in numerical form).
+
+This Dashboard has analyzes to see and understand customers' profiles in more detail. It is a visualization made to understand the characteristics of customers and the attrited customers features according to these characteristics parameters. The KPIs of the data above appear in numerical form. Below are 6 different dynamic analysis. By clicking on the analyzes, you can see that the data in the table changes dynamically.
 
 ## Results
 

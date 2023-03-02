@@ -2,12 +2,12 @@ import pandas as pd
 import sqlite3
 
 # csv to dataframe
-data = pd.read_csv('1_data_storage/BankChurners.csv')   
+data = pd.read_csv("data_cleaning/BankChurners.csv")   
 df = pd.DataFrame(data)
 
 # dataframe to db
-connexion = sqlite3.connect("1_data_storage/data.db")
-df.to_sql('bankchurners', connexion, if_exists='replace', index=False)
+connexion = sqlite3.connect("data_storage/data.db")
+df.to_sql("bankchurners", connexion, if_exists="replace", index=False)
 cursor = connexion.cursor()
 
 # db test

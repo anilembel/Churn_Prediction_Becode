@@ -108,7 +108,7 @@ We managed to predict if a specific client is likely to churn. With our models, 
 
 <img src=".streamlit/classification_report.png" align="center">
 
-You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]([https://churn-prediction-h564.onrender.com/]()) .
+You can check our deployed app there: [https://churn-prediction-h564.onrender.com]([https://churn-prediction-h564.onrender.com/]()) .
 
 ## Contact
 

@@ -82,7 +82,17 @@ In this folder, we worked on 2 models: one for classification and another one fo
 *classification.py* classifies the data between existing customer and attrited customer.
 *clustering.py* defines 6 different profiles of customer and their probability to churn.
 
-<img src=".streamlit/clustering_illu.png" alt="illustration of the clustering model">
+<table border="0">
+ <tr>
+    <td><p style="font-size:1em">Illustration from classification</b></td>
+    <td><p style="font-size:1em">Illustration from clustering</b></td>
+ </tr>
+ <tr>
+    <td><img src=".streamlit/Confusion_Matrix_Classification.png" alt="confusion matrix from classification"></td>
+    <td><img src=".streamlit/clustering_illu.png" alt="graph from clustering model"></td>
+ </tr>
+</table>
+
 
 #### vizualisations
 

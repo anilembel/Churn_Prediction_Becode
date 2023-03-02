@@ -97,6 +97,6 @@ It shows the characteristics parameters of attrited customers and the KPI of the
 
 ## Contact
 
-data analyst: [Anil Furkan EMBEL ](https://github.com/anilembel)
-ML engineer: [Philippe Meulemans](https://github.com/Laverdure77)
-data engineers: [Romain Vanden Bossche](https://github.com/vdbromain) & [Anh Sophie Noël](https://github.com/AnhSN)
+data analyst: [Anil Furkan EMBEL
+](https://github.com/anilembel)ML engineer: [Philippe Meulemans
+](https://github.com/Laverdure77)data engineers: [Romain Vanden Bossche](https://github.com/vdbromain) & [Anh Sophie Noël](https://github.com/AnhSN)

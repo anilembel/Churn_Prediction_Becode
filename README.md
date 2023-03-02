@@ -93,7 +93,7 @@ It shows the characteristics parameters of attrited customers and the KPI of the
 
 ## Results
 
-[work in progress]
+You can check our deployed app there: [https://churn-prediction-h564.onrender.com/]()
 
 ## Contact
 

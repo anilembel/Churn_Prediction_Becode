@@ -62,7 +62,7 @@ The project is divided in 4 folders:
 ## Usage
 
 *app.py*, which is at the root of our project contains the code of our app.
-We used streamlit to better our design and docker to make it available cross OS. Using those libraries, we display a form which get specific client data, run our model using pickle and tell the user if the client is likely to churn or not.
+We used streamlit to improve our design and docker to deploy it easily. Using those libraries, we display a form which get specific client data, run our model using pickle and tell the user if the client is likely to churn or not.
 At the bottom of the page, we included a dashboard which displays a series of graphs. (More about it in the vizualisation section.)
 
 #### data_storage

@@ -47,7 +47,6 @@ Best result used is n_neighbors = 9 with an accuracy of 87.53 %.
 
 ### Confusion Matrix  
 
-
 The classification model is trained to detect chrurning customer profiles.
 The worst case scenario would be to detect an attrited customer as an existing customer (False Negative).  
 False negative are 218 or 2,15% , as shown in the confusion matrix.
